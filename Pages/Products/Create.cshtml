@@ -1,0 +1,29 @@
+@page
+@model CustomerOrderManagement.Pages.Products.CreateModel
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<h1>Create Product</h1>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<form method="post">
+    <div class="form-group">
+        <label for="ProductName">Product Name</label>
+        <input id="ProductName" name="Product.ProductName" class="form-control" />
+        <span asp-validation-for="Product.ProductName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="UnitPrice">Unit Price</label>
+        <input id="UnitPrice" name="Product.UnitPrice" type="number" step="0.01" class="form-control" />
+        <span asp-validation-for="Product.UnitPrice" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="UnitsInStock">Units In Stock</label>
+        <input id="UnitsInStock" name="Product.UnitsInStock" type="number" class="form-control" />
+        <span asp-validation-for="Product.UnitsInStock" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+</form>

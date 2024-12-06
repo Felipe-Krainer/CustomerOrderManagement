@@ -1,0 +1,28 @@
+@page
+@model CustomerOrderManagement.Pages.Customers.CreateModel
+@{
+    ViewData["Title"] = "Create Customer";
+}
+
+<h1>Create Customer</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="CustomerID">Customer ID</label>
+        <input id="CustomerID" name="Customer.CustomerID" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="CompanyName">Company Name</label>
+        <input id="CompanyName" name="Customer.CompanyName" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="ContactName">Contact Name</label>
+        <input id="ContactName" name="Customer.ContactName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Country">Country</label>
+        <input id="Country" name="Customer.Country" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+</form>

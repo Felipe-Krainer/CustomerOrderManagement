@@ -1,0 +1,25 @@
+@page "{id:int}"
+@model CustomerOrderManagement.Pages.Orders.EditModel
+@{
+    ViewData["Title"] = "Edit Order";
+}
+
+<h1>Edit Order</h1>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<form method="post">
+    <input type="hidden" asp-for="Order.OrderID" />
+    <div class="form-group">
+        <label for="CustomerID">Customer ID</label>
+        <input id="CustomerID" name="Order.CustomerID" value="@Model.Order.CustomerID" class="form-control" />
+        <span asp-validation-for="Order.CustomerID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="OrderDate">Order Date</label>
+        <input id="OrderDate" name="Order.OrderDate" value="@Model.Order.OrderDate?.ToString("yyyy-MM-dd")" type="date" class="form-control" />
+        <span asp-validation-for="Order.OrderDate" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="./Index" class="btn btn-secondary">Cancel</a>
+</form>

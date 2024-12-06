@@ -1,0 +1,29 @@
+@page "{id:int}"
+@model CustomerOrderManagement.Pages.Products.DetailsModel
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<h1>Product Details</h1>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Product ID</dt>
+        <dd class="col-sm-10">@Model.Product.ProductID</dd>
+
+        <dt class="col-sm-2">Product Name</dt>
+        <dd class="col-sm-10">@Model.Product.ProductName</dd>
+
+        <dt class="col-sm-2">Unit Price</dt>
+        <dd class="col-sm-10">@Model.Product.UnitPrice?.ToString("C")</dd>
+
+        <dt class="col-sm-2">Units In Stock</dt>
+        <dd class="col-sm-10">@Model.Product.UnitsInStock</dd>
+
+        <dt class="col-sm-2">Discontinued</dt>
+        <dd class="col-sm-10">@Model.Product.Discontinued</dd>
+    </dl>
+    <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+</div>

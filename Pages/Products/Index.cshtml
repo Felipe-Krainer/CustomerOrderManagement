@@ -1,0 +1,41 @@
+@page
+@model CustomerOrderManagement.Pages.Products.IndexModel
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>Products</h1>
+
+<!-- Search Form -->
+<form method="get" class="mb-3">
+    <input type="text" name="SearchTerm" value="@Model.SearchTerm" placeholder="Search products..." class="form-control" />
+    <button type="submit" class="btn btn-primary mt-2">Search</button>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Units In Stock</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var product in Model.Products)
+    {
+        <tr>
+            <td>@product.ProductID</td>
+            <td>@product.ProductName</td>
+            <td>@product.UnitPrice?.ToString("C")</td>
+            <td>@product.UnitsInStock</td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@product.ProductID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@product.ProductID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@product.ProductID">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+@page
+@model CustomerOrderManagement.Pages.Orders.IndexModel
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<h1>Orders</h1>
+
+<!-- Search Form -->
+<form method="get" class="mb-3">
+    <input type="text" name="SearchTerm" value="@Model.SearchTerm" placeholder="Search orders by Customer ID..." class="form-control" />
+    <button type="submit" class="btn btn-primary mt-2">Search</button>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Customer ID</th>
+            <th>Order Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var order in Model.Orders)
+    {
+        <tr>
+            <td>@order.OrderID</td>
+            <td>@order.CustomerID</td>
+            <td>@order.OrderDate?.ToString("yyyy-MM-dd")</td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@order.OrderID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@order.OrderID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@order.OrderID">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
